@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %} Shop {% endblock %}
+{% block content %}
+<main style="padding:111px;text-align: center;">
+    <section style="margin-bottom:50px;">
+        <h1 style="font-weight: 200;font-size: 30px;">НАШ МАГАЗИН</h1>
+    </section>
+    <section class="container"> 
+        <article class="block">
+           <p >Цена</p>
+           
+           <div class="price-filter">
+            <input type="range" id="priceRange" min="0" max="1000" step="10" value="0">
+            <output id="priceOutput" >$0</output>
+            
+          </div>
+          <a href="#" id="resetButton" style="padding-top:10px;color:black;">Сбросить Фильтр</a>
+        </article>
+        <article style="margin-bottom:20px;">
+            <form action="#" enctype="multipart/form-data">
+                <input type="text" class="input" placeholder="Поиск"   >
+ 
+            </form>
+        </article>
+        <article>
+            <p>Сортировать по:</p>
+          <select name="" id="" style="width: 150px;background-color: white;text-align: center;font-size: 18px;border-radius:10px 10px 0 0">
+                <option value="">По умолчанию</option>
+                <option value="">Цена (от низкой до высокой)</option>
+                <option value="">Цена (от высокой до низкой)</option>
+            </select>
+        </article>
+    </section>
+</main>
+<script>
+    document.querySelector('.burger').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.querySelector('.nav').classList.toggle('open');
+})
+const priceRange = document.getElementById('priceRange');
+const priceOutput = document.getElementById('priceOutput');
+const resetButton = document.getElementById('resetButton');
+
+priceRange.addEventListener('input', updatePrice);
+resetButton.addEventListener('click', resetFilter);
+
+function updatePrice() {
+  const price = priceRange.value;
+  priceOutput.textContent = `$${price}`;
+}
+
+function resetFilter() {
+  priceRange.value = 0;
+  priceOutput.textContent = '$0';
+}
+
+</script>
+{% endblock %}

@@ -1,0 +1,106 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}{% endblock %} | MinzifaHandCraft</title>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <a href="{% url 'home' %}" style="color:black;">
+                <span><strong style="font-weight:900;">Minzifa</strong></span>
+                <br>
+                <span style="font-weight: 700;">Boutique Shop</span>
+            </a>
+        </nav>
+        <nav class="nav ">
+            <a href="{% url 'shop' %}" style="color:rgba(0, 0, 0, 0.55); " class="link">Магазин</a>
+            <a href="#" style="color:rgba(0, 0, 0, 0.55);">Скидки</a>
+            <div class="navbnone">
+                <select name="" id="">
+                    <option value="">русский</option>
+                    <option value="">english</option>
+                </select>
+                <a href="tel:+998934770800">
+                    <img src="{% static 'images/phone-logo.svg' %}" alt="Minzifa Shop" style="position: relative;top:4px;">
+                    <span style="color:rgba(0, 0, 0, 0.55);">+998 93 477 08 00</span>
+                </a>
+            </div>
+        </nav>
+        <nav class="nav ">
+            <select class="select" name="" id="">
+                <option value="">русский</option>
+                <option value="">english</option>
+            </select>
+            <a href="tel:+998934770800">
+                <img src="{% static 'images/phone-logo.svg' %}" alt="Minzifa Shop" style="position: relative;top:4px;">
+                <span style="color:rgba(0, 0, 0, 0.55);">+998 93 477 08 00</span>
+            </a>
+        </nav>
+        <div class="burger">
+            <span></span>
+        </div>
+    </header>   
+    {% block content %}
+    {% endblock %}
+    <footer style="background-color:#363636 ;">
+        <br><br><br><br>
+        <div class="footer">
+        <section class="footer__item">
+            <h2 class="footer__title">
+                About company
+            </h2>
+            <div class="line"></div>
+            <br>
+            <p>Lorem ipsum,</p>
+        </section>
+        <section class="footer__item">
+            <h2 class="footer__title" >
+                Services                 
+            </h2>
+           <div class="line"></div>
+           <br>
+            <p style="margin-top:0;">
+                <a href="#" style="color:white;  ">Home</a> <br>       
+                <a href="#" style="color:white; ">Account</a> <br> 
+                <a href="#" style="color:white;">Contact us</a>
+            </p>
+        </section>
+        <section class="footer__item">
+            <h2 class="footer__title">
+                Helpful links
+            </h2>
+            <div class="line"></div>
+            <br>
+           <p> <a href="#" style="color: white;">Sale products</a></p>
+        </section>
+        <section class="footer__item">
+            <h2 class="footer__title">
+                About company
+            </h2>
+            <div class="line"></div>
+            <br>
+            <p>
+                adress@gmail.com
+                +9999999999999
+                Mon.-Sat.:09:00 am to  09:00 pm
+            </p>
+
+        </section>
+        </div>
+        <br><br>
+        <hr style="background-color: white;">
+        <br><br>    
+        <section>
+            <p style="text-align: center; color: white;">2020-2023 | minzifahandcraft.com</p>
+        </section>
+        <br><br>    
+    </footer>
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

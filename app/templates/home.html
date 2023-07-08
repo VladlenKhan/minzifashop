@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %} Minzifa Shop {% endblock title %}
+
+{% block content %}
+
+<main style="padding-top:56px;">
+    <section class="slider" >
+        <div class="slider-container">
+            <div class="slide" style="background:  url({% static 'images/img1.jpg' %});     background-size: cover;background-repeat: no-repeat; width:100%;height: 100vh;   ">
+            <div class="slide__text" style="  display: flex;justify-content:center;align-items:  center;flex-direction: column; height: 100%;">
+                
+                <h1 style="color:white;text-align: center;font-size: 32px; ">Добро пожаловать в магазин Minzifa</h1>
+                <p style="color:white;text-align: center;font-size:24px;"> 
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Temporibus minus, reprehenderit cumque omnis <br> ab placeat quis deserunt repellat neque tempore in <br> vitae aut facilis, doloribus nihil! Ad veritatis earum <br> impedit!</p>
+            </div>
+          
+            </div>
+            <div class="slide" style="background:  url({% static 'images/img2.jpg' %});     background-size: cover;background-repeat: no-repeat; width:100%;height: 100vh;   ">
+            <div class="slide__text" style="  display: flex;justify-content:center;align-items:  center;flex-direction: column; height: 100%;">
+                
+                <h1 style="color:white;text-align: center;font-size: 32px; ">Добро пожаловать в магазин Minzifa</h1>
+                <p style="color:white;text-align: center;font-size:24px;"> 
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Temporibus minus, reprehenderit cumque omnis <br> ab placeat quis deserunt repellat neque tempore in <br> vitae aut facilis, doloribus nihil! Ad veritatis earum <br> impedit!</p>
+            </div>
+          
+            </div>
+            <div class="slide" style="background:  url({% static 'images/img3.jpg' %});     background-size: cover;background-repeat: no-repeat; width:100%;height: 100vh;   ">
+            <div class="slide__text" style="  display: flex;justify-content:center;align-items:  center;flex-direction: column; height: 100%;">
+                
+                <h1 style="color:white;text-align: center;font-size: 32px; ">Добро пожаловать в магазин Minzifa</h1>
+                <p style="color:white;text-align: center;font-size:24px;"> 
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Temporibus minus, reprehenderit cumque omnis <br> ab placeat quis deserunt repellat neque tempore in <br> vitae aut facilis, doloribus nihil! Ad veritatis earum <br> impedit!</p>
+            </div>
+          
+            </div>
+           
+        </div>
+    </section>
+    <br><br>
+    <section>
+        <h1 style="text-align: center;font-size: 28px;">ПОПУЛЯРНЫЕ КАТЕГОРИИ</h1>
+    </section>
+    <section style="display: flex;justify-content: space-around;align-items: center;flex-wrap: wrap;">
+        {% for category in category %}
+        <article style="width: 200px; box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);border-radius:30px;text-align: center;height: 30px;">
+            {{ category.title }}
+        </article>
+        {% endfor %}
+    </section>
+    <br><br>
+    <section>
+         <h1 style="text-align: center;font-size: 28px;">ОТКРОЙТЕ ДЛЯ СЕБЯ УНИКАЛЬНЫЕ ТОВАРЫ , ОТОБРАННЫЕ ВРУЧНУЮ </h1>
+    </section>
+    <section style="display: flex;justify-content: space-around;align-items: center;">
+        <article></article>
+    </section>
+    <br><br><br>
+    <section>
+        <h1 style="text-align: center;font-size: 28px;">ТОВАРЫ СО СКИДКОЙ</h1>
+    </section>
+    <section style="display: flex;justify-content: space-around;align-items: center;flex-wrap:wrap;">
+        {% for item in product %}
+        <article class="box">
+          
+           <img src="{{ item.image.url }}" width="100%" height="200" style="object-fit: cover;" alt="img">
+           <h2 style="text-align: center;">{{ item.title }}</h2>
+           <p  style="word-wrap: break-word; padding:10px;">{{ item.description|truncatechars:150|truncatewords:100 }}</p>
+           <p style="text-align: center;">${{ item.cost }}</p>
+          
+       </article> 
+       {% endfor %}
+    </section>
+
+    <br>
+    <section>
+    <h1  style="text-align: center;font-size: 28px;">ЧТО ТАКОЕ MINZIFA HAND CRAFTS</h1>
+    </section>
+    <br><br><br>
+    <section style="margin:50px;">
+        <div class="about-wrapper">
+            <div class="about-inner">
+                <div class="about-card">
+                    <div class="icon">
+                        <img src="{% static 'images/about-1.svg' %}" alt="Minzifa Shop">
+                    </div>
+                    <h2>A one-of-a-kind community</h2>
+                    <p>Silky is a global online marketplace, where people come together to make, sell, buy and collect unique items.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">
+                        <img src="{% static 'images/about-2.svg' %}" alt="Minzifa Shop">
+                    </div>
+                    <h2>Support independent creators</h2>
+                    <p>
+                        There is no Silky warehouse – just millions of craftsman’s selling the thing they love. We make the whole process easy, helping you connect directly with makers to find something extraordinary.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">
+                        <img src="{% static 'images/about-3.svg' %}" alt="Minzifa Shop">
+                    </div>
+                    <h2>Peace of mind</h2>
+                    <p>
+                        Your privacy is the highest priority of our dedicated team. And if you ever need assistance, we are always ready to step in for support.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">
+                        <img src="{% static 'images/about-4.svg' %}" alt="Minzifa Shop">
+                    </div>
+                    <h2>Colorful Arts & Crafts</h2>
+                    <p>
+                        The offering selection of colorful Arts & Crafts which will bring some zest into your interiors and mesmerise the imagination.
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">
+                        <img src="{% static 'images/about-5.svg' %}" alt="Minzifa Shop">
+                    </div>
+                    <h2>Delectable eastern sweets</h2>
+                    <p>
+                        Here on Silky you’ll find a wide range fruit tea mixes, dried fruits, natural oils and pervasive aromas of our spice blends that will not leave you stillfull and not only experience, but indulge, in exotic flavors from various countries.
+                    </p>
+                </div>
+            </div>
+        </div>
+      
+    </section>
+</main>
+
+{% endblock %}
