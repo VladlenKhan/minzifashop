@@ -225,6 +225,12 @@ input[placeholder] {
     
 
 }
+a:active{
+    color: #000000;
+}
+button:hover{
+    cursor: pointer;
+}
 .select {
 
     height: 30px;

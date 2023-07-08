@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} Category {% endblock %}
+
+{% block content %}
+<main style="padding-top:100px;">
+    <h1 style="text-align: center;">Товары с категорией: {{ category.title }}</h1>
+    <section style="display: flex;justify-content: space-around;align-items: center;flex-wrap:wrap;">
+        
+        {% for product in products %}
+        <article class="box">
+            <img src="{{ product.image.url }}" width="100%" height="200" style="object-fit: cover;" alt="{{ product.name }}">
+            <h3 style="text-align: center;">{{ product.title }}</h3>
+            
+            <p style="word-wrap: break-word; padding:10px;">{{ product.description|truncatechars:100|truncatewords:50 }}</p>
+            <p style="text-align: center;">${{ product.cost }}</p>
+            <div style="text-align: center;padding-top:30px;">
+            <button style=" border-radius: 30px;width: 100px;height: 30px;box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);border:none;"><a href="{% url 'product_detail' product_id=product.id %}">Подробнее</a></button>
+            </div>
+    </article>
+        {% empty %}
+            <p style="text-align: center;">Нет товаров в данной категории.</p>
+        </article>
+        {% endfor %}
+
+    </section>
+</main>
+{% endblock %}
