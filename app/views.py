@@ -17,4 +17,5 @@ def product_detail(request, product_id):
     return render(request, 'products.html', {'product': product})
 
 def shop(request):
-    return render(request,'shop.html')
+    product = Product.objects.all()
+    return render(request, 'shop.html', {'product': product})
